@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: nacos-config-01
+
+  #项目启动的时候去哪里找配置文件
+  cloud:
+    nacos:
+      server-addr: http://localhost:8848
+      username: nacos
+      password: nacos
+
+      #微服务注册信息
+      discovery:
+        service: nacos-config-01
+        namespace: 78f9bff9-ab1f-44ff-b493-291381e83b20
+        group: A-GROUP
+
+      config:
+        namespace: 78f9bff9-ab1f-44ff-b493-291381e83b20
+        group: A-GROUP
+        prefix: nacos-config-01
+        file-extension: yml
+
+  #dev环境
+  profiles:
+    active: dev

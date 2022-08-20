@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: nacos-client-01
+
+  # nacos信息
+  cloud:
+    nacos:
+      #注册到nacos 默认是public 不指定命名空间，就在public，不指定分组，默认在DEFAULT_GROUP
+      server-addr: http://localhost:8848
+      username: nacos
+      password: nacos
+      discovery:
+        service: jxl-service
+        namespace: 78f9bff9-ab1f-44ff-b493-291381e83b20 #命名空间id
+        group: A_GROUP #注册到哪个组
+
+# 暴露服务端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

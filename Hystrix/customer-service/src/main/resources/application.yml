@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: customer-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    hostname: localhost
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+
+
+
+feign:
+  circuitbreaker:
+    enabled: true  #开启熔断器，以前只有这个，默认打开，现在有很多了，默认是关闭

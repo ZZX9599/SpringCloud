@@ -1,0 +1,25 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server-01
+
+eureka:
+  #server的配置
+  server:
+    renewal-percent-threshold: 0.85
+    eviction-interval-timer-in-ms: 10000
+
+  #client配置
+  client:
+    service-url:
+      defaultZone: http://192.168.220.148/eureka
+
+  #实例的配置
+  instance:
+    #实例的id包括三部分【主机名:微服务名称:ip】
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    hostname: peer1  #主机名称
+    prefer-ip-address: true  #以ip的形式显示信息
+    lease-renewal-interval-in-seconds: 5  #服务的续约时间，时间是秒【默认是30S】

@@ -1,0 +1,19 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: nacos-client-02
+
+  cloud:
+    nacos:
+      server-addr: http://localhost:8848
+      username: nacos
+      password: nacos
+      #注册信息
+      discovery:
+        namespace: 78f9bff9-ab1f-44ff-b493-291381e83b20 #命名空间id
+        group: A_GROUP #注册到哪个组
+        service: zzx-service #默认是${spring.application.name}
+
+
